@@ -41,7 +41,7 @@ export function MarcomSection() {
           </svg>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <MoveRight className="text-white w-8 h-8" />
+          <MoveRight className="text-gray-400/20 w-8 h-8" />
         </div>
       </div>
     </div>

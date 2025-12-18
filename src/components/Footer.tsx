@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <h3 className="font-bold text-gray-900 mb-6">Quick Links</h3>
           <ul className="space-y-3 text-sm text-gray-600">
-            {['Home', 'About Us', 'Services', 'Projects', 'Blog'].map(item => <li key={item}>
+            {['Home', 'About Us', 'Leadership', 'Services', 'Projects', 'Blog'].map(item => <li key={item}>
               <Link to={`/${item.toLowerCase().replace(/\s+/g, '') === 'home' ? '' : item.toLowerCase().replace(/\s+/g, '')}`} className="hover:text-[#E91E63] transition-colors">
                 {item}
               </Link>
@@ -59,7 +59,7 @@ export function Footer() {
       <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
         <p>© Copyright DigitalPoint of 2025. All rights reserved.</p>
         <p className="mt-2 md:mt-0">
-          Website Design & Developed by Minstray of Brands.
+          Website Design & Developed by Ministry of Brands.
         </p>
       </div>
     </div>

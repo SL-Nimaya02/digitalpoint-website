@@ -51,14 +51,10 @@ export function Portfolio() {
         {portfolioItems.map((item, idx) => <div key={item.id} className={`relative group overflow-hidden rounded-xl cursor-pointer ${idx === 2 ? 'row-span-2' : ''} ${idx === 4 ? 'col-span-2' : ''}`}>
           <div className={`absolute inset-0 ${item.color} opacity-20 group-hover:opacity-0 transition-opacity z-10`}></div>
           <img src={item.image} alt={`Portfolio item ${item.id}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
-            <span className="text-white font-medium border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">
-              View Project
-            </span>
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
           </div>
         </div>)}
 
-        {/* Placeholder for the last item to fill grid nicely if needed */}
         {/* Placeholder for the last item to fill grid nicely if needed */}
         <Link to="/projects" className="relative group overflow-hidden rounded-xl cursor-pointer bg-gray-100 flex items-center justify-center">
           <div className="text-center p-6">

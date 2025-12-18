@@ -8,7 +8,7 @@ const blogs = [{
 }, {
   date: '29 Aug | Trends',
   title: 'The Importance of Physical Outreach for Universities',
-  image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=200&auto=format&fit=crop'
+  image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=200&auto=format&fit=crop'
 }, {
   date: '23 Apr | Video Design',
   title: '5 Universities With Unique Graduation Traditions',
@@ -16,7 +16,7 @@ const blogs = [{
 }, {
   date: '17 Feb | Printing',
   title: 'Top 5 Social Media Marketing Trends of 2024 that are Here to Stay',
-  image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=200&auto=format&fit=crop'
+  image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=200&auto=format&fit=crop'
 }];
 export function BlogSection() {
   return <section className="py-20 bg-white">

@@ -27,8 +27,8 @@ export function Hero() {
             </p>
             <Button
               size="lg"
-              className="group bg-[#0851b3] hover:bg-[#05358a] text-white transition-colors duration-300 disabled:bg-gray-100 disabled:text-gray-400 focus:outline-none focus:ring-5 focus:ring-[#0851b3]"
-              onClick={() => window.location.href = '/aboutus'}
+              className="group bg-[#1c3eab] hover:bg-[#0a3db3] text-white transition-colors duration-300 disabled:bg-gray-100 disabled:text-gray-400 focus:outline-none focus:ring-5 focus:ring-[#0a3db3]"
+              onClick={() => window.location.href = '/about-us'}
             >
               Learn More
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -40,7 +40,7 @@ export function Hero() {
             {/* Main Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform lg:translate-x-8">
               <img
-                src="/projects/project17.jpeg"
+                src="/hero.png"
                 alt="Industrial Printing Press"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />

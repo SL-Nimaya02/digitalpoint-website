@@ -176,8 +176,8 @@ export function AboutUs() {
                         </p>
 
                         <Button
-                            onClick={() => window.location.href = '/contactus'}
-                            className="bg-[#1b63bb] hover:bg-[#0045b4] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2 mx-auto"
+                            onClick={() => window.location.href = '/contact-us'}
+                            className="bg-[#1b63bb] hover:bg-[#1b63bb] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2 mx-auto"
                         >
                             Get in Touch
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

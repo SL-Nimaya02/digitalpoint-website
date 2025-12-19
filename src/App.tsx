@@ -19,11 +19,11 @@ export function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/leadership" element={<Leadership />} />
         </Routes>
       </div>

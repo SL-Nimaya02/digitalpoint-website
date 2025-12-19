@@ -211,8 +211,8 @@ export function Projects() {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Button
-                                onClick={() => window.location.href = '/contactus'}
-                                className="bg-[#1b63bb] hover:bg-[#0045b4] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2"
+                                onClick={() => window.location.href = '/contact-us'}
+                                className="bg-[#1b63bb] hover:bg-[#1b63bb] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2"
                             >
                                 Start a Project
                             </Button>

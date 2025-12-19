@@ -15,8 +15,8 @@ export function Footer() {
           <div className="flex items-start space-x-3 text-gray-500 text-sm leading-relaxed">
             <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
             <p>
-              1102, Pinnacle Business Park, Corporate Road, <br />
-              Prahladnagar, Ahmedabad, India - 380015
+              11640, Makola,Mawaramandiya, <br />
+              Kiribathgoda, Sri Lanka
             </p>
           </div>
         </div>
@@ -37,7 +37,13 @@ export function Footer() {
         <div>
           <h3 className="font-bold text-gray-900 mb-6">Our Services</h3>
           <ul className="space-y-3 text-sm text-gray-600">
-            {['Banner Printing', 'Roll-up Banner Printing', 'X-Banner & L-Banner Printing', 'Backdrop Printing', 'Window Graphics Printing', 'Wall Sticker Printing'].map(item => <li key={item}>
+            {['Flag Printing'
+              , 'X-Banners Printing'
+              , 'Flex Banner Printing'
+              , 'Light and Name Boards Printing'
+              , 'Funeral Banners Printing'
+              , 'Sticker and Transparent sticker Printing'
+            ].map(item => <li key={item}>
               <Link to="/services" className="hover:text-[#E91E63] transition-colors">
                 {item}
               </Link>
@@ -49,7 +55,7 @@ export function Footer() {
         <div>
           <h3 className="font-bold text-gray-900 mb-6">Connect Us</h3>
           <div className="flex space-x-4">
-            {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#E91E63] hover:text-white hover:border-[#E91E63] transition-all duration-300">
+            {[Facebook, Instagram].map((Icon, i) => <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#E91E63] hover:text-white hover:border-[#E91E63] transition-all duration-300">
               <Icon className="h-4 w-4" />
             </a>)}
           </div>

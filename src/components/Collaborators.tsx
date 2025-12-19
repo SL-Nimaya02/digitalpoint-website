@@ -7,8 +7,7 @@ export function Collaborators() {
         Trusted Collaborators
       </h2>
       <p className="text-gray-500 text-sm">
-        From bustling universities to innovative recruitment institutions, our
-        family spans the globe.
+        Trusted by businesses and organizations for consistent quality and professional printing.
       </p>
     </div>
 

@@ -41,9 +41,7 @@ export function Portfolio() {
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Work</h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Hue has made education marketing an absolute breeze for universities
-          and colleges around the world. Here's some of the work we have done
-          over the years.
+          Our work highlights bold designs, premium materials, and high quality printing that help brands stand out and leave a lasting impression.
         </p>
       </div>
 

@@ -2,37 +2,37 @@ import { Link } from 'react-router-dom';
 const portfolioItems = [{
   id: 1,
   color: 'bg-[#003366]',
-  image: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project01.jpeg',
   size: 'small'
 }, {
   id: 2,
   color: 'bg-[#FFD700]',
-  image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project02.jpeg',
   size: 'small'
 }, {
   id: 3,
   color: 'bg-[#0EA5E9]',
-  image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project03.jpeg',
   size: 'tall'
 }, {
   id: 4,
   color: 'bg-[#4ADE80]',
-  image: 'https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project10.jpeg',
   size: 'small'
 }, {
   id: 5,
   color: 'bg-[#1a1a1a]',
-  image: 'https://images.unsplash.com/photo-1606166325683-e6deb697d301?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project05.jpeg',
   size: 'wide'
 }, {
   id: 6,
   color: 'bg-[#E91E63]',
-  image: 'https://images.unsplash.com/photo-1541462608143-0afed760dd5c?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project06.jpeg',
   size: 'small'
 }, {
   id: 7,
   color: 'bg-[#F97316]',
-  image: 'https://images.unsplash.com/photo-1629367494173-c78a56567877?q=80&w=500&auto=format&fit=crop',
+  image: '/projects/project07.jpeg',
   size: 'small'
 }];
 export function Portfolio() {

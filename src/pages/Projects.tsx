@@ -11,42 +11,42 @@ const projects = [
         id: 1,
         title: "TechFlow Brand Identity",
         category: "Branding",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project01.jpeg",
         description: "Complete corporate identity overhaul for a leading fintech startup, including logo design, stationery, and brand guidelines."
     },
     {
         id: 2,
         title: "EcoScape Large Format",
         category: "Printing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project02.jpeg",
         description: "Massive outdoor advertising campaign featuring weather-resistant vinyl banners and building wraps for an environmental initiative."
     },
     {
         id: 3,
         title: "Urban Coffee Packaging",
         category: "Marketing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project03.jpeg",
         description: "Sustainable and eye-catching packaging design for a premium coffee chain, focusing on organic textures and vibrant colors."
     },
     {
         id: 4,
         title: "Neon Nights Signage",
         category: "Printing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project10.jpeg",
         description: "Custom fabrication of 3D acrylic LED signage for a downtown nightlife district, ensuring high visibility and durability."
     },
     {
         id: 5,
         title: "Global Summit Expo",
         category: "Marketing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project11.jpeg",
         description: "End-to-end event branding including booth design, roll-up banners, and promotional merchandise for an international conference."
     },
     {
         id: 6,
         title: "Luxe Interiors Brochure",
         category: "Branding",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project06.jpeg",
         description: "Premium offset printing for a luxury real estate brochure, utilizing spot UV coating and high-grade matte paper."
     }
 ];
@@ -124,7 +124,7 @@ export function Projects() {
                             </div>
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
                                 Our <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Projects.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Creations.</span>
                             </h1>
                             <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
                                 Explore a showcase of our finest work, where creativity meets precision. From concept to execution, we deliver excellence.

@@ -39,7 +39,11 @@ export function Hero() {
           <div className="relative mt-10 lg:mt-0">
             {/* Main Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform lg:translate-x-8">
-              <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=1632&auto=format&fit=crop" alt="Industrial Printing Press" className="w-full h-[400px] lg:h-[500px] object-cover" />
+              <img
+                src="/projects/project17.jpeg"
+                alt="Industrial Printing Press"
+                className="w-full h-[400px] lg:h-[500px] object-cover"
+              />
 
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>

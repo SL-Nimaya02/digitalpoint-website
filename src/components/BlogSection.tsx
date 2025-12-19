@@ -5,27 +5,27 @@ const blogs = [
   {
     date: '10 Dec | Printing Trends',
     title: 'Top Trends in Banner and Flex Printing for 2025',
-    image: 'https://images.unsplash.com/photo-1581090700227-12c3f61a354d?q=80&w=200&auto=format&fit=crop'
+    image: '/projects/project01.jpeg'
   },
   {
     date: '5 Dec | Branding',
     title: 'How High-Quality Flag Printing Boosts Brand Visibility',
-    image: 'https://images.unsplash.com/photo-1581091870629-12dcd3b6a019?q=80&w=200&auto=format&fit=crop'
+    image: '/projects/project02.jpeg'
   },
   {
     date: '2 Dec | Stickers',
     title: 'Sticker and Transparent Sticker Printing: Elevate Your Products',
-    image: 'https://images.unsplash.com/photo-1598300050095-c6c7f983d2b1?q=80&w=200&auto=format&fit=crop'
+    image: '/projects/project03.jpeg'
   },
   {
     date: '28 Nov | Event Printing',
     title: 'Creating Impactful Funeral and Event Banners',
-    image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=200&auto=format&fit=crop'
+    image: '/projects/project06.jpeg'
   },
   {
     date: '20 Nov | Signage',
     title: 'Light and Name Board Printing: Stand Out in Style',
-    image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=200&auto=format&fit=crop'
+    image: '/projects/project05.jpeg'
   }
 ];
 

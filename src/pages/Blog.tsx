@@ -163,11 +163,11 @@ export function Blog() {
                                         <span>Blog</span>
                                     </div>
                                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                                        Our <br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Blogs.</span>
+                                        Latest <br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Articles.</span>
                                     </h1>
                                     <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                                        Explore our thoughts on design, technology, and university trends. We share what we learn to help you grow.
+                                        Explore our insights on printing, design, and marketing trends. We share tips and ideas to help your brand stand out.
                                     </p>
                                 </div>
                             </div>

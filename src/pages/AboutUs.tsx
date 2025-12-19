@@ -42,11 +42,11 @@ export function AboutUs() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="relative">
                                 <div className="grid grid-cols-2 gap-4">
-                                    <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=800&auto=format&fit=crop" className="rounded-2xl shadow-xl w-full h-64 object-cover transform translate-y-8" alt="Printing" />
-                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop" className="rounded-2xl shadow-xl w-full h-64 object-cover" alt="Team meeting" />
+                                    <img src="/projects/project10.jpeg" className="rounded-2xl shadow-xl w-full h-64 object-cover transform translate-y-8" alt="Printing" />
+                                    <img src="/projects/project01.jpeg" className="rounded-2xl shadow-xl w-full h-64 object-cover" alt="Team meeting" />
                                 </div>
                                 <div className="absolute -bottom-8 -right-8 bg-[#E91E63] p-8 rounded-xl shadow-lg hidden md:block">
-                                    <div className="text-4xl font-bold text-white mb-1">15+</div>
+                                    <div className="text-4xl font-bold text-white mb-1">3+</div>
                                     <div className="text-white/90 text-sm uppercase tracking-wide">Years of<br />Experience</div>
                                 </div>
                             </div>
@@ -55,10 +55,10 @@ export function AboutUs() {
                                 <h2 className="text-4xl font-bold text-gray-900 mb-6">From Press to Partner</h2>
                                 <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
                                     <p>
-                                        Founded with a passion for precision, Digital Point began as a high-quality printing press. But we quickly realized our clients needed more than just ink on paper—they needed a voice.
+                                        Founded in 2022 with a passion for precision and quality, Digital Point started as a small high quality printing press. We quickly realized our clients wanted more than just prints , they wanted their ideas to stand out.
                                     </p>
                                     <p>
-                                        Today, we stand as a comprehensive Marcom partner, bridging the gap between physical collateral and digital presence. Our evolution is driven by a single mission: to empower brands to communicate with clarity, impact, and style.
+                                        Today, we provide comprehensive printing solutions, bridging creativity and professionalism. Our mission is simple: to help businesses and individuals communicate with impact, style, and clarity through premium printed materials.
                                     </p>
                                     <div className="grid grid-cols-2 gap-6 pt-4">
                                         <div className="flex items-start space-x-3">
@@ -90,7 +90,8 @@ export function AboutUs() {
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                                 <p className="text-gray-600 leading-relaxed">
-                                    To deliver exceptional visibility to our clients through high-quality printing and strategic marketing, ensuring every project we touch turns into a success story. We aim to be the silent engine behind your loud success.
+
+                                    To be the pioneering one-stop solution for all advertising and digital printing needs in the Kiribathgoda area, providing top-quality products and unmatched service, 24 hours a day.
                                 </p>
                             </div>
                             <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -99,7 +100,8 @@ export function AboutUs() {
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                                 <p className="text-gray-600 leading-relaxed">
-                                    To be the global benchmark in integrated marketing communications, where innovation meets execution. We envision a world where every brand, no matter the size, has access to world-class presentation.
+
+                                    Digital Point (Pvt) Ltd is a 5-star rated advertising agency dedicated to helping your business stand out. With state-of-the-art digital printing technology and a passion for creativity, we handle projects of all sizes with professionalism and care.
                                 </p>
                             </div>
                         </div>
@@ -120,43 +122,43 @@ export function AboutUs() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Digital Point */}
                             <div className="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#E91E63]/20 transition-all duration-300">
-                                <div className="w-16 h-16 bg-gradient-to-br from-[#E91E63] to-[#C2185B] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <Printer className="w-8 h-8 text-white" />
+                                <div className="w-16 h-16 bg-gradient-to-br from-[#E91E63] to-[#C2185B] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-gray-100 overflow-hidden">
+                                    <img src="/page-logo/logo01.jpg" alt="Digital Point" className="w-full h-full object-cover" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Digital Point</h3>
                                 <p className="text-gray-600 leading-relaxed mb-4">
                                     Our flagship printing and marketing communications division, delivering premium quality prints and integrated marcom solutions to businesses worldwide.
                                 </p>
-                                <div className="flex items-center text-[#E91E63] font-medium text-sm group-hover:gap-2 transition-all">
-                                    <span>Core Business</span>
+                                <div className="flex items-center text-gray-500 font-medium text-sm group-hover:gap-2 transition-all">
+                                    <span>Digital Design</span>
                                 </div>
                             </div>
 
                             {/* Subsidiary 2 */}
                             <div className="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#1b63bb]/20 transition-all duration-300">
-                                <div className="w-16 h-16 bg-gradient-to-br from-[#1b63bb] to-[#0851b3] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <ShieldCheck className="w-8 h-8 text-white" />
+                                <div className="w-16 h-16 bg-gradient-to-br from-[#E91E63] to-[#C2185B] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-gray-100 overflow-hidden">
+                                    <img src="/page-logo/logo03.jpg" alt="Digital Point" className="w-full h-full object-cover" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3">Digital Solutions</h3>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3">Sithuki Foreign Empoleement Agency</h3>
                                 <p className="text-gray-600 leading-relaxed mb-4">
-                                    Specialized in digital transformation services, providing cutting-edge technology solutions and digital infrastructure for modern businesses.
+                                    Connecting skilled professionals with global employers through seamless recruitment, visa support, and compliance services.
                                 </p>
-                                <div className="flex items-center text-[#1b63bb] font-medium text-sm group-hover:gap-2 transition-all">
-                                    <span>Technology Division</span>
+                                <div className="flex items-center text-gray-500 font-medium text-sm group-hover:gap-2 transition-all">
+                                    <span>Employment Agency</span>
                                 </div>
                             </div>
 
                             {/* Subsidiary 3 */}
                             <div className="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#00897B]/20 transition-all duration-300">
-                                <div className="w-16 h-16 bg-gradient-to-br from-[#00897B] to-[#00695C] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <Award className="w-8 h-8 text-white" />
+                                <div className="w-16 h-16 bg-gradient-to-br from-[#E91E63] to-[#C2185B] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-gray-100 overflow-hidden">
+                                    <img src="/page-logo/logo02.jpg" alt="Digital Point" className="w-full h-full object-cover" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3">Creative Studio</h3>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3">Wego Travels</h3>
                                 <p className="text-gray-600 leading-relaxed mb-4">
-                                    A dedicated creative agency focused on brand strategy, design excellence, and innovative marketing campaigns that captivate audiences.
+                                    A full-service travel agency offering personalized travel experiences, curated tours, and seamless booking solutions that make every journey memorable.
                                 </p>
-                                <div className="flex items-center text-[#00897B] font-medium text-sm group-hover:gap-2 transition-all">
-                                    <span>Creative Division</span>
+                                <div className="flex items-center text-gray-500 font-medium text-sm group-hover:gap-2 transition-all">
+                                    <span>Travel Agency</span>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +172,7 @@ export function AboutUs() {
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
                         <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                            Whether you need 50,000 prints or a complete brand overhaul, we are here to make it happen efficiently and beautifully.
+                            Digital Point provides high-quality prints, from banners to posters, making every project look professional and vibrant.
                         </p>
 
                         <Button

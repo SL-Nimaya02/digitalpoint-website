@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { AboutUs } from './pages/AboutUs';
+import { LandingPage } from './pages/LandingPage';
 import { Services } from './pages/Services';
 import { Projects } from './pages/Projects';
 import { Blog } from './pages/Blog';
@@ -17,11 +18,11 @@ export function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/leadership" element={<Leadership />} />
         </Routes>
       </div>

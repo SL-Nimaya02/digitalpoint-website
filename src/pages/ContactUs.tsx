@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Loader2, CheckCircle2 } from 'lucide-react';
 
 export function ContactUs() {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: 'General Inquiry',
+        message: ''
+    });
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({ ...prev, [id]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: "c9706216-ead7-44fb-8a1c-bba44052c6d8",
+                    name: `${formData.firstName} ${formData.lastName}`,
+                    email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    from_name: "DigitalPoint Website",
+                    to_email: "ilankoonhansani@gmail.com"
+                })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                setStatus('success');
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    subject: 'General Inquiry',
+                    message: ''
+                });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        }
+    };
+
     return (
         <div className="min-h-screen bg-white font-sans selection:bg-[#E91E63] selection:text-white">
 
@@ -84,13 +139,16 @@ export function ContactUs() {
                         {/* Contact Form Column */}
                         <div className="bg-gray-50 rounded-3xl p-8 md:p-10 lg:p-12">
                             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-                            <form className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
                                         <input
                                             type="text"
                                             id="firstName"
+                                            value={formData.firstName}
+                                            onChange={handleChange}
+                                            required
                                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#E91E63] focus:border-transparent outline-none transition-all bg-white"
                                             placeholder="John"
                                         />
@@ -100,6 +158,9 @@ export function ContactUs() {
                                         <input
                                             type="text"
                                             id="lastName"
+                                            value={formData.lastName}
+                                            onChange={handleChange}
+                                            required
                                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#E91E63] focus:border-transparent outline-none transition-all bg-white"
                                             placeholder="Doe"
                                         />
@@ -111,6 +172,9 @@ export function ContactUs() {
                                     <input
                                         type="email"
                                         id="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#E91E63] focus:border-transparent outline-none transition-all bg-white"
                                         placeholder="john@example.com"
                                     />
@@ -120,6 +184,8 @@ export function ContactUs() {
                                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
                                     <select
                                         id="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#E91E63] focus:border-transparent outline-none transition-all bg-white text-gray-600"
                                     >
                                         <option>General Inquiry</option>
@@ -134,6 +200,9 @@ export function ContactUs() {
                                     <textarea
                                         id="message"
                                         rows={4}
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#E91E63] focus:border-transparent outline-none transition-all bg-white resize-none"
                                         placeholder="Tell us about your project..."
                                     ></textarea>
@@ -141,11 +210,32 @@ export function ContactUs() {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#1a1a1a] text-white font-medium py-4 rounded-xl hover:bg-[#E91E63] transition-colors duration-300 flex items-center justify-center gap-2 group"
+                                    disabled={status === 'loading'}
+                                    className="w-full bg-[#1a1a1a] text-white font-medium py-4 rounded-xl hover:bg-[#E91E63] transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
-                                    Send Message
-                                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    {status === 'loading' ? (
+                                        <>
+                                            <Loader2 className="w-5 h-5 animate-spin" />
+                                            Sending...
+                                        </>
+                                    ) : status === 'success' ? (
+                                        <>
+                                            <CheckCircle2 className="w-5 h-5 text-green-400" />
+                                            Message Sent!
+                                        </>
+                                    ) : (
+                                        <>
+                                            Send Message
+                                            <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </>
+                                    )}
                                 </button>
+
+                                {status === 'error' && (
+                                    <p className="text-red-500 text-center text-sm mt-2">
+                                        Something went wrong. Please try again or contact us directly.
+                                    </p>
+                                )}
                             </form>
                         </div>
 

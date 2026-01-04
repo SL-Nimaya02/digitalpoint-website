@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Testimonials } from '../components/Testimonials';
 import { Button } from '../components/ui/Button';
-import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 
 // Project Data
 const projects = [
@@ -202,8 +201,16 @@ export function Projects() {
                 <Testimonials />
 
                 {/* CTA Section */}
-                <section className="py-24 bg-[#111] relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524146120755-471253493e82?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+                <section className="py-24 bg-[#0A0A0A] relative overflow-hidden">
+                    {/* Background Image with Dark Overlay */}
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src="/printing-cta-bg.png"
+                            className="w-full h-full object-cover opacity-30 select-none pointer-events-none"
+                            alt=""
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/80" />
+                    </div>
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Have a Vision? Let's Build It.</h2>
                         <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">

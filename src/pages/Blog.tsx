@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ArrowRight, Calendar, User, MessageCircle, Share2, ChevronLeft, Send, Heart } from 'lucide-react';
@@ -11,7 +12,7 @@ interface Comment {
     avatar: string;
 }
 
-interface BlogPost {
+export interface BlogPost {
     id: number;
     title: string;
     category: string;
@@ -25,7 +26,7 @@ interface BlogPost {
     likes: number;
 }
 
-const BLOG_DATA: BlogPost[] = [
+export const BLOG_DATA: BlogPost[] = [
     {
         id: 1,
         title: 'Creating Impactful Posters: How Prints Help Your Brand Stand Out',
@@ -222,6 +223,18 @@ const BLOG_DATA: BlogPost[] = [
 export function Blog() {
     const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
     const [commentText, setCommentText] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {
+        const state = location.state as { postId?: number } | null;
+        if (state?.postId) {
+            const post = BLOG_DATA.find(b => b.id === state.postId);
+            if (post) {
+                setSelectedPost(post);
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+        }
+    }, [location]);
 
     // Handlers
     const handlePostClick = (post: BlogPost) => {

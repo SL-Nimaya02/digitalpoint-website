@@ -7,8 +7,8 @@ import { Linkedin, Twitter, Award, Target, Users } from 'lucide-react';
 const mainLeader = {
     name: "Mr.Maha Pathiranage Dinesh Sanjeewa",
     role: "Chairman",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
-    bio: "It is my privilege to introduce the Sithuki Group of Companies and our subsidiary, Sithuki Enterprises Pvt. Ltd., a trusted partner in delivering reliable and ethical manpower solutions. Since our establishment in 2010 as a government-licensed foreign employment agency, we have remained dedicated to professionalism, integrity, and excellence in every service we provide. As a 5-Star Award-Winning Recruitment Agency, we understand that human resources are the cornerstone of any organization’s success. Our mission is to simplify your recruitment process by identifying and delivering the right talent with efficiency and precision. We take pride in forming long-term partnerships founded on trust, transparency, and mutual respect. Ethical recruitment is at the heart of our operations. We are committed to fairness, equality, and creating opportunities for individuals to demonstrate their abilities, regardless of background. Our goal is to support your organization by connecting you with skilled, committed, and capable professionals. I warmly invite you to experience the difference Sithuki Enterprises Pvt. Ltd. can bring to your recruitment journey. Thank you for choosing us as your trusted manpower partner."
+    image: "/leadership/chairmen.jpg",
+    bio: "It is my privilege to introduce Digital Point, a premier printing and marketing communications company founded in 2022. We are committed to delivering high-quality printing solutions and creative marcom services to businesses and individuals alike. At Digital Point, we understand that effective communication is the cornerstone of every successful brand. Our mission is to simplify your printing and marketing needs by providing precision, creativity, and reliability in every project, while building long-term relationships founded on trust, transparency, and professionalism. Quality, creativity, and client satisfaction are at the heart of everything we do, empowering businesses to communicate clearly, effectively, and beautifully with their audiences. We warmly invite you to experience the difference Digital Point can bring to your branding and printing projects."
 };
 
 const directors = [
@@ -47,8 +47,8 @@ export function Leadership() {
                                 <span>Leadership</span>
                             </div>
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                                Our <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Leadership.</span>
+                                Guiding  <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Visionaries.</span>
                             </h1>
                             <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
                                 Guiding Digital Point towards innovation, excellence, and a future where every brand finds its voice.
@@ -147,7 +147,7 @@ export function Leadership() {
                                 </div>
                                 <h2 className="text-4xl lg:text-5xl font-bold mb-6">United by Purpose</h2>
                                 <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                                    Our leadership team shares a common vision: to transform lives through ethical and professional overseas employment services. Together, we are committed to maintaining the trust that thousands of families have placed in Sithuki.
+                                    Our leadership team at Digital Point shares a common vision: to help businesses and individuals communicate effectively through high-quality printing and creative marcom solutions. Together, we are committed to delivering excellence and building lasting trust with every client.
                                 </p>
                                 <div className="grid grid-cols-2 gap-8">
                                     <div>

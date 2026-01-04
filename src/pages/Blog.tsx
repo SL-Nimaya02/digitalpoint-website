@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ArrowRight, Calendar, User, MessageCircle, Share2, ChevronLeft, Send, Heart } from 'lucide-react';
@@ -11,7 +12,7 @@ interface Comment {
     avatar: string;
 }
 
-interface BlogPost {
+export interface BlogPost {
     id: number;
     title: string;
     category: string;
@@ -25,87 +26,215 @@ interface BlogPost {
     likes: number;
 }
 
-const BLOG_DATA: BlogPost[] = [
+export const BLOG_DATA: BlogPost[] = [
     {
         id: 1,
-        title: 'Welcoming Freshman Kit: Helps Students Connect With University',
-        category: 'Video Design',
-        date: '5 Jun 2024',
-        image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
+        title: 'Creating Impactful Posters: How Prints Help Your Brand Stand Out',
+        category: 'Printing',
+        date: '5 Jan 2025',
+        image: "/projects/project01.jpeg",
         author: 'Sarah Jenkins',
-        excerpt: 'Discover how carefully curated freshman kits are bridging the gap between new students and university culture.',
+        excerpt: 'Discover how high-quality posters can elevate your brand visibility and make your campaigns memorable.',
         content: (
             <>
-                <p className="mb-6">The transition to university life is a monumental step for any student. It marks the beginning of independence, academic challenges, and new social circles. However, it can also be a time of anxiety and disconnection. Enter the "Freshman Kit" – a thoughtful initiative that is changing how students interact with their new alma mater from day one.</p>
-
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">More Than Just Swag</h3>
-                <p className="mb-6">A well-designed freshman kit is not just about free pens and hoodies. It's a tangible representation of the university's brand and values. When a student receives a high-quality kit, they feel valued and welcomed. It sets a positive tone for their entire academic journey.</p>
-
-                <blockquote className="border-l-4 border-[#1b63bb] pl-4 italic text-gray-700 mb-6">
-                    "The freshman kit was my first real connection to the campus community. It made me feel like I belonged before classes even started."
-                </blockquote>
-
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Building Community</h3>
-                <p className="mb-6">These kits often include guides to campus life, maps of local hangouts, and even vouchers for local businesses. This encourages students to explore their new environment together, fostering early friendships and a sense of belonging. The psychological impact of these "welcome gifts" cannot be understated in reducing homesickness and dropout rates.</p>
+                <p>Posters remain one of the most powerful tools for businesses to communicate messages clearly and create a lasting impression. At Digital Point, we design and print posters that combine bold visuals, clean typography, and cohesive branding. Each poster is thoughtfully crafted to ensure your message resonates with your audience and enhances overall brand visibility.</p>
+                <p>Our design process prioritizes clarity, creativity, and impact. We select color palettes that evoke emotion, fonts that are readable from a distance, and graphics that strengthen your brand story. Collaboration with clients ensures that every poster meets the campaign’s purpose, whether for promotions, events, or awareness, leaving a memorable visual imprint.</p>
+                <p>High-quality materials and professional printing techniques make our posters stand out. We use premium papers, durable finishes, and eco-friendly inks to maintain vibrancy and longevity. Digital Point ensures that whether displayed indoors or outdoors, your posters withstand handling and environmental factors, creating a professional and visually appealing representation of your brand.</p>
             </>
         ),
-        tags: ['University', 'Student Life', 'Design', 'Branding'],
-        comments: [
-            { id: 1, user: 'Alex Thompson', date: '2 days ago', content: 'This is such a great initiative! I wish my uni did this.', avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&auto=format&fit=crop' },
-            { id: 2, user: 'Maria Garcia', date: '5 days ago', content: 'Totally agree. The design of these kits really matters.', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop' }
-        ],
-        likes: 124
+        tags: ['Printing', 'Posters', 'Branding'],
+        comments: [],
+        likes: 120
     },
     {
         id: 2,
-        title: 'The Importance of Physical Outreach for Universities',
-        category: 'Trends',
-        date: '29 Aug 2024',
-        image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
-        author: 'Dr. James Wilson',
-        excerpt: 'In a digital-first world, physical outreach remains a powerful tool for universities to build lasting relationships.',
+        title: 'Banner Printing Tips: Make Your Event Unforgettable',
+        category: 'Printing',
+        date: '15 Jan 2025',
+        image: "/projects/project02.jpeg",
+        author: 'James Wilson',
+        excerpt: 'Learn how to design banners that draw attention and create a memorable impression for any event.',
         content: (
             <>
-                <p className="mb-6">While digital marketing is essential, physical outreach offers a personal touch that screens cannot replicate. University fairs, campus tours, and face-to-face counseling sessions build trust and allow prospective students to experience the campus atmosphere firsthand.</p>
-                <p className="mb-6">Physical presence in local communities demonstrates commitment and accessibility. It allows universities to engage with parents and guardians directly, addressing their concerns and showcasing the support systems available for their children.</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Hybrid is the Future</h3>
-                <p className="mb-6">The most successful institutions are blending physical and digital strategies. A physical brochure might lead to a QR code for a virtual tour, creating a seamless omni-channel experience.</p>
+                <p>Banners are an essential medium for promoting events, products, or campaigns. At Digital Point, we craft banners that are visually striking, durable, and tailored to your specific needs. Every banner is designed to grab attention, convey messages effectively, and reinforce your brand presence in both indoor and outdoor environments.</p>
+                <p>Design plays a crucial role in banner effectiveness. We focus on vibrant color schemes, readable typography, and balanced layouts that attract viewers from afar. Working closely with clients, we ensure the banner aligns with the event’s objectives, target audience, and branding guidelines, resulting in impactful communication and strong visual appeal.</p>
+                <p>Material selection and finishing are critical for lasting results. Digital Point provides premium materials, eco-friendly inks, and professional mounting options to ensure durability and aesthetic quality. Our banners withstand weather conditions, wear and tear, and repeated usage, giving your events and campaigns a polished, professional look that leaves a lasting impression.</p>
             </>
         ),
-        tags: ['Marketing', 'Education', 'Outreach'],
+        tags: ['Banners', 'Event', 'Printing'],
         comments: [],
-        likes: 89
+        likes: 98
     },
     {
         id: 3,
-        title: '5 Universities With Unique Graduation Traditions',
-        category: 'Video Design',
-        date: '23 Apr 2024',
-        image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
+        title: 'Sticker and Label Design: Boost Your Product’s Appeal',
+        category: 'Printing',
+        date: '22 Jan 2025',
+        image: "/projects/project03.jpeg",
         author: 'Emily Chen',
-        excerpt: 'From throwing hats to jumping in fountains, explore the most unique ways students celebrate their graduation.',
+        excerpt: 'Discover how well-designed stickers and labels can enhance product recognition and sales.',
         content: (
             <>
-                <p className="mb-6">Graduation is a universal milestone, but how it's celebrated varies wildly. Some traditions are solemn, while others are downright quirky. Let's take a tour of 5 universities that do things a little differently.</p>
-                <ul className="list-disc pl-6 mb-6 space-y-2">
-                    <li><strong>Kanazawa University, Japan:</strong> Students dress in cosplay instead of traditional gowns.</li>
-                    <li><strong>Wellesley College, USA:</strong> The "Hoop Rolling" race where the winner is said to be the first to achieve success.</li>
-                    <li><strong>University of Coimbra, Portugal:</strong> Students rip their ribbons to symbolize the end of academic life.</li>
-                </ul>
-                <p className="mb-6">These traditions not only create lasting memories but also strengthen the alumni bond.</p>
+                <p>Custom stickers and labels are essential tools for branding and marketing. At Digital Point, we design and print labels that help products stand out on shelves and create memorable brand experiences. By integrating your brand colors, typography, and unique visuals, our labels capture attention and foster recognition across your customer base.</p>
+                <p>Every design is carefully crafted to balance aesthetics and readability. We focus on font size, color contrast, and graphic placement to ensure the message is clear and visually appealing. Our team collaborates with clients to align designs with packaging requirements and marketing goals, producing labels that reinforce brand identity and customer engagement.</p>
+                <p>High-quality printing materials and techniques are used to create durable, professional stickers and labels. Digital Point ensures that every product label is resistant to wear, moisture, and fading. Whether for retail products, promotional items, or packaging, our labels elevate your brand presentation and leave a lasting impression on customers.</p>
             </>
         ),
-        tags: ['Tradition', 'Culture', 'International'],
-        comments: [
-            { id: 1, user: 'Kenji Tanaka', date: '1 week ago', content: 'The cosplay tradition is hilarious and awesome!', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop' }
-        ],
-        likes: 210
+        tags: ['Stickers', 'Labels', 'Branding'],
+        comments: [],
+        likes: 110
+    },
+    {
+        id: 4,
+        title: 'Flex Banner Printing: Durable and Eye-Catching',
+        category: 'Printing',
+        date: '30 Jan 2025',
+        image: "/projects/project13.jpeg",
+        author: 'David Lee',
+        excerpt: 'Flex banners are perfect for outdoor promotions. Learn how to make yours more effective.',
+        content: (
+            <>
+                <p>Flex banners are a powerful way to promote brands, products, and events. At Digital Point, we specialize in producing high-quality flex banners that are durable, weather-resistant, and visually impactful. Our banners help businesses communicate effectively in outdoor spaces, attracting attention from a distance and leaving a lasting impression on viewers.</p>
+                <p>The design process focuses on size, color, typography, and layout to maximize visibility and engagement. We work closely with clients to ensure that each banner reflects the brand’s message, aligns with the campaign objectives, and captures audience attention, making it an effective marketing tool for any occasion or event.</p>
+                <p>Material quality and finishing are key to long-lasting banners. Digital Point uses premium materials, eco-friendly inks, and professional finishing techniques to ensure durability and vibrant colors. Our flex banners withstand outdoor conditions while maintaining visual appeal, providing reliable, professional, and impactful promotional displays for every business need.</p>
+            </>
+        ),
+        tags: ['Flex Banner', 'Printing', 'Marketing'],
+        comments: [],
+        likes: 90
+    },
+    {
+        id: 5,
+        title: 'Light and Name Boards Printing: Make Your Business Shine',
+        category: 'Printing',
+        date: '5 Feb 2025',
+        image: "/projects/project05.jpeg",
+        author: 'Samantha Green',
+        excerpt: 'Custom light boards and name signs help your business stand out in a crowded marketplace.',
+        content: (
+            <>
+                <p>Light and name boards are essential for creating a strong business identity. Digital Point designs and prints illuminated signs and nameboards that stand out and communicate professionalism. Each board is carefully created to combine visibility, durability, and brand representation, helping businesses leave a memorable impression on clients and visitors alike.</p>
+                <p>Design considerations include color, lighting, typography, and material selection. Our team works closely with clients to ensure that each board reflects the brand’s values, fits the intended space, and attracts attention effectively. These details enhance readability and visual appeal, increasing brand awareness and recognition.</p>
+                <p>High-quality materials, advanced printing, and finishing techniques ensure long-lasting and vibrant results. Digital Point uses weather-resistant materials and premium finishes for both indoor and outdoor applications. Our light and name boards are not only functional but also visually captivating, elevating the professional appearance of any business or establishment.</p>
+            </>
+        ),
+        tags: ['Signage', 'Printing', 'Business Branding'],
+        comments: [],
+        likes: 105
+    },
+    {
+        id: 6,
+        title: 'Event Orientation Kits: Impress Your Audience',
+        category: 'Printing',
+        date: '12 Feb 2025',
+        image: "/projects/project06.jpeg",
+        author: 'Alex Thompson',
+        excerpt: 'Customized orientation kits help your events look professional and leave a lasting impression.',
+        content: (
+            <>
+                <p>Event orientation kits are essential for providing attendees with a memorable experience. Digital Point designs and prints high-quality kits including brochures, folders, and welcome items. These kits communicate your brand message, guide participants, and create a professional, cohesive impression for conferences, workshops, or corporate events.</p>
+                <p>We focus on customization to ensure each kit aligns with event themes and branding. Carefully selected colors, typography, and layout make the materials visually appealing and easy to navigate. Our team works closely with clients to create kits that are both functional and memorable.</p>
+                <p>Quality printing materials and finishing options enhance the overall impression of each kit. Digital Point uses durable papers, eco-friendly inks, and professional binding techniques to ensure that orientation kits withstand handling while maintaining visual quality. These thoughtful details reflect professionalism and leave attendees with a lasting positive experience.</p>
+            </>
+        ),
+        tags: ['Events', 'Printing', 'Branding'],
+        comments: [],
+        likes: 88
+    },
+    {
+        id: 7,
+        title: 'Creative Flyer Design: Attract Your Customers',
+        category: 'Printing',
+        date: '20 Feb 2025',
+        image: "/projects/project07.jpeg",
+        author: 'Maria Garcia',
+        excerpt: 'Well-designed flyers can dramatically improve your outreach and engagement.',
+        content: (
+            <>
+                <p>Flyers are a versatile and cost-effective way to promote products, services, and events. Digital Point designs and prints creative flyers that capture attention, communicate messages clearly, and reflect brand identity. Each flyer is carefully crafted to ensure readability, visual appeal, and maximum engagement with the target audience.</p>
+                <p>We emphasize strong design elements including typography, imagery, layout, and color schemes that resonate with your audience. By aligning with brand guidelines, our flyers enhance recognition and encourage interaction. Collaboration with clients ensures that the final design meets marketing objectives and communicates key information effectively.</p>
+                <p>Premium printing materials and finishing techniques ensure flyers look professional and durable. Digital Point uses high-quality paper, inks, and finishes to produce flyers that maintain visual appeal over time. Whether distributed physically or included in marketing packages, our flyers leave a lasting impression that supports your brand’s message.</p>
+            </>
+        ),
+        tags: ['Flyers', 'Printing', 'Marketing'],
+        comments: [],
+        likes: 95
+    },
+    {
+        id: 8,
+        title: 'Custom Flag Printing: Showcase Your Brand Everywhere',
+        category: 'Printing',
+        date: '28 Feb 2025',
+        image: "/projects/project08.jpeg",
+        author: 'David Lee',
+        excerpt: 'Flags are a great way to represent your brand at events and outdoor spaces.',
+        content: (
+            <>
+                <p>Custom flags are an impactful tool for brand visibility at events, exhibitions, and outdoor spaces. Digital Point designs and prints high-quality flags that are durable, vibrant, and visually appealing. Each flag is tailored to reflect your brand colors, logos, and messaging, enhancing recognition and audience engagement wherever displayed.</p>
+                <p>Design is essential to creating attention-grabbing flags. We focus on bold colors, striking graphics, and readable typography that maintain clarity even in motion or from a distance. Collaborating with clients ensures each flag aligns with marketing objectives and communicates the intended message effectively.</p>
+                <p>Premium materials and professional printing techniques guarantee that flags withstand weather conditions and retain vibrant colors. Digital Point uses high-quality fabrics, eco-friendly inks, and durable finishing to ensure long-lasting, visually appealing results. Custom flags create a professional presence and maximize brand exposure wherever they are displayed.</p>
+            </>
+        ),
+        tags: ['Flags', 'Printing', 'Branding'],
+        comments: [],
+        likes: 102
+    },
+    {
+        id: 9,
+        title: 'Transparent Sticker Printing: Creative and Versatile',
+        category: 'Printing',
+        date: '8 Mar 2025',
+        image: "/projects/project09.jpeg",
+        author: 'Emily Chen',
+        excerpt: 'Transparent stickers are perfect for product packaging and promotional items.',
+        content: (
+            <>
+                <p>Transparent stickers are a flexible branding tool that enhances product packaging and marketing items. Digital Point designs and prints creative, high-quality transparent stickers that effectively showcase logos, graphics, and messages without obstructing the product. Each sticker is crafted to complement the item while maximizing visual appeal and brand recognition.</p>
+                <p>Design considerations include color contrast, die-cut shapes, and typography, ensuring clarity and aesthetic appeal. Digital Point collaborates with clients to create stickers that align with brand identity and marketing objectives. Proper design increases visibility, customer engagement, and overall product presentation.</p>
+                <p>We use premium materials, durable inks, and professional finishing to produce stickers that withstand wear, moisture, and handling. Transparent stickers maintain clarity and vibrancy over time, providing a professional and polished branding solution that leaves a lasting impression on customers across products and promotional materials.</p>
+            </>
+        ),
+        tags: ['Stickers', 'Printing', 'Design'],
+        comments: [],
+        likes: 97
+    },
+    {
+        id: 10,
+        title: 'Marketing Collateral: Elevate Your Brand Identity',
+        category: 'Printing',
+        date: '15 Mar 2025',
+        image: "/projects/project10.jpeg",
+        author: 'Sarah Jenkins',
+        excerpt: 'From brochures to business cards, cohesive marketing materials strengthen your brand presence.',
+        content: (
+            <>
+                <p>Marketing collateral is a critical component of brand communication. Digital Point designs and prints high-quality brochures, business cards, and promotional materials that maintain visual consistency and effectively convey your brand message. Cohesive collateral ensures that every touchpoint reinforces brand identity and engages customers meaningfully.</p>
+                <p>Design is tailored to each client’s objectives, focusing on typography, color schemes, layout, and imagery. We collaborate closely with clients to create materials that are visually appealing, informative, and aligned with marketing campaigns, ensuring each piece enhances brand recognition and supports business goals.</p>
+                <p>Premium materials, professional printing techniques, and attention to finishing details ensure durable, high-quality results. Digital Point produces collateral that looks and feels professional, withstands handling, and makes a positive impression. Our approach elevates brand visibility and leaves a lasting, memorable impact on your audience.</p>
+            </>
+        ),
+        tags: ['Marketing', 'Printing', 'Branding'],
+        comments: [],
+        likes: 115
     }
 ];
+
 
 export function Blog() {
     const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
     const [commentText, setCommentText] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {
+        const state = location.state as { postId?: number } | null;
+        if (state?.postId) {
+            const post = BLOG_DATA.find(b => b.id === state.postId);
+            if (post) {
+                setSelectedPost(post);
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+        }
+    }, [location]);
 
     // Handlers
     const handlePostClick = (post: BlogPost) => {
@@ -163,11 +292,11 @@ export function Blog() {
                                         <span>Blog</span>
                                     </div>
                                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                                        Our <br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Blogs.</span>
+                                        Latest <br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Articles.</span>
                                     </h1>
                                     <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                                        Explore our thoughts on design, technology, and university trends. We share what we learn to help you grow.
+                                        Explore our insights on printing, design, and marketing trends. We share tips and ideas to help your brand stand out.
                                     </p>
                                 </div>
                             </div>

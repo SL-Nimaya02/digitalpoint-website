@@ -39,7 +39,7 @@ export function Services() {
                             </div>
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
                                 Our <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Services.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Capabilities.</span>
                             </h1>
                             <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
                                 Comprehensive printing and marketing solutions designed to elevate your brand visibility. We bring your vision to life.
@@ -65,7 +65,7 @@ export function Services() {
                                 <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#E91E63] transition-colors">
                                     <Flag className="w-7 h-7 text-[#E91E63] group-hover:text-white transition-colors" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Large Format Banners</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">Flag Printing</h3>
                                 <p className="text-gray-600 mb-4">
                                     High-impact flex and vinyl banners perfect for outdoor advertising, events, and building wraps. Weather-resistant and vibrant.
                                 </p>
@@ -86,7 +86,7 @@ export function Services() {
                                 <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#E91E63] transition-colors">
                                     <ScrollText className="w-7 h-7 text-[#E91E63] group-hover:text-white transition-colors" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Display Systems</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">X-Banners Printing</h3>
                                 <p className="text-gray-600 mb-4">
                                     Portable and professional display solutions for exhibitions, trade shows, and retail environments.
                                 </p>
@@ -107,7 +107,7 @@ export function Services() {
                                 <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#E91E63] transition-colors">
                                     <Printer className="w-7 h-7 text-[#E91E63] group-hover:text-white transition-colors" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Vehicle Branding</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">Flex Banner Printing</h3>
                                 <p className="text-gray-600 mb-4">
                                     Turn your fleet into moving billboards with high-quality vinyl wraps and decals that last.
                                 </p>
@@ -128,7 +128,7 @@ export function Services() {
                                 <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#E91E63] transition-colors">
                                     <Monitor className="w-7 h-7 text-[#E91E63] group-hover:text-white transition-colors" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Window & Glass</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">Light and Name Boards Printing</h3>
                                 <p className="text-gray-600 mb-4">
                                     Enhance privacy or promote sales with custom frosted films, one-way vision, and vinyl cutouts.
                                 </p>
@@ -149,7 +149,7 @@ export function Services() {
                                 <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#E91E63] transition-colors">
                                     <Frame className="w-7 h-7 text-[#E91E63] group-hover:text-white transition-colors" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Signage & Fabrication</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">Funeral Banners Printing</h3>
                                 <p className="text-gray-600 mb-4">
                                     Custom 3D signage, lightboxes, and acrylic fabrication to make your brand stand out day and night.
                                 </p>
@@ -170,7 +170,7 @@ export function Services() {
                                 <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#E91E63] transition-colors">
                                     <GalleryVertical className="w-7 h-7 text-[#E91E63] group-hover:text-white transition-colors" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Offset & Digital</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">Sticker and Transparent sticker Printing</h3>
                                 <p className="text-gray-600 mb-4">
                                     High-volume printing for brochures, business cards, flyers, and corporate stationery with perfect color accuracy.
                                 </p>
@@ -264,8 +264,8 @@ export function Services() {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Button
-                                onClick={() => window.location.href = '/contactus'}
-                                className="bg-[#1b63bb] hover:bg-[#0045b4] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2 mx-auto"
+                                onClick={() => window.location.href = '/contact-us'}
+                                className="bg-[#1b63bb] hover:bg-[#1b63bb] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2 mx-auto"
                             >
                                 Contact Us
                             </Button>

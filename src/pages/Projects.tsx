@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Testimonials } from '../components/Testimonials';
 import { Button } from '../components/ui/Button';
-import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 
 // Project Data
 const projects = [
@@ -11,42 +10,42 @@ const projects = [
         id: 1,
         title: "TechFlow Brand Identity",
         category: "Branding",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project01.jpeg",
         description: "Complete corporate identity overhaul for a leading fintech startup, including logo design, stationery, and brand guidelines."
     },
     {
         id: 2,
         title: "EcoScape Large Format",
         category: "Printing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project02.jpeg",
         description: "Massive outdoor advertising campaign featuring weather-resistant vinyl banners and building wraps for an environmental initiative."
     },
     {
         id: 3,
         title: "Urban Coffee Packaging",
         category: "Marketing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project03.jpeg",
         description: "Sustainable and eye-catching packaging design for a premium coffee chain, focusing on organic textures and vibrant colors."
     },
     {
         id: 4,
         title: "Neon Nights Signage",
         category: "Printing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project10.jpeg",
         description: "Custom fabrication of 3D acrylic LED signage for a downtown nightlife district, ensuring high visibility and durability."
     },
     {
         id: 5,
         title: "Global Summit Expo",
         category: "Marketing",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project11.jpeg",
         description: "End-to-end event branding including booth design, roll-up banners, and promotional merchandise for an international conference."
     },
     {
         id: 6,
         title: "Luxe Interiors Brochure",
         category: "Branding",
-        image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2000&auto=format&fit=crop",
+        image: "/projects/project06.jpeg",
         description: "Premium offset printing for a luxury real estate brochure, utilizing spot UV coating and high-grade matte paper."
     }
 ];
@@ -124,7 +123,7 @@ export function Projects() {
                             </div>
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
                                 Our <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Projects.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Creations.</span>
                             </h1>
                             <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
                                 Explore a showcase of our finest work, where creativity meets precision. From concept to execution, we deliver excellence.
@@ -202,8 +201,16 @@ export function Projects() {
                 <Testimonials />
 
                 {/* CTA Section */}
-                <section className="py-24 bg-[#111] relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524146120755-471253493e82?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+                <section className="py-24 bg-[#0A0A0A] relative overflow-hidden">
+                    {/* Background Image with Dark Overlay */}
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src="/printing-cta-bg.png"
+                            className="w-full h-full object-cover opacity-30 select-none pointer-events-none"
+                            alt=""
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/80" />
+                    </div>
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Have a Vision? Let's Build It.</h2>
                         <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
@@ -211,8 +218,8 @@ export function Projects() {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Button
-                                onClick={() => window.location.href = '/contactus'}
-                                className="bg-[#1b63bb] hover:bg-[#0045b4] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2"
+                                onClick={() => window.location.href = '/contact-us'}
+                                className="bg-[#1b63bb] hover:bg-[#1b63bb] text-white px-8 py-6 rounded-full font-bold text-lg transition-all group flex items-center gap-2"
                             >
                                 Start a Project
                             </Button>

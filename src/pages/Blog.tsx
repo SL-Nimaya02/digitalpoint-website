@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { ArrowRight, Calendar, User, MessageCircle, Share2, ChevronLeft, Send, Heart } from 'lucide-react';
+import { ArrowRight, Calendar, User, ChevronLeft } from 'lucide-react';
 
 interface Comment {
     id: number;
@@ -267,65 +266,96 @@ export function Blog() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-[#E91E63] selection:text-white">
+        <div className="min-h-screen bg-white flex flex-col font-['Montserrat'] selection:bg-[#E91E63] selection:text-white">
 
-            {/* Removed pt-20 to fix the gap issue */}
             <main className="flex-grow">
                 {!selectedPost ? (
                     /* ================= LIST VIEW ================= */
                     <>
-                        {/* Hero Section (Matches Services/AboutUs) */}
-                        <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
+                        {/* Hero Section */}
+                        <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[#050505] font-['Outfit']">
+                            {/* Background Visuals */}
                             <div className="absolute inset-0">
                                 <img
                                     src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2073&auto=format&fit=crop"
                                     alt="Blog Hero"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover opacity-60"
                                 />
-                                <div className="absolute inset-0 bg-black/60"></div>
+                                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#050505]"></div>
                             </div>
-                            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-                                <div className="max-w-3xl">
-                                    <div className="inline-flex items-center space-x-2 text-sm font-medium tracking-wider uppercase mb-4 text-[#E91E63]">
-                                        <span>Home</span>
-                                        <span className="text-gray-400">/</span>
-                                        <span>Blog</span>
-                                    </div>
-                                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                                        Latest <br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Articles.</span>
-                                    </h1>
-                                    <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                                        Explore our insights on printing, design, and marketing trends. We share tips and ideas to help your brand stand out.
+
+                            {/* Decorative Elements */}
+                            <div className="absolute top-1/4 left-1/4 w-[50rem] h-[50rem] bg-[#1b63bb]/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+                            <div className="absolute bottom-1/4 right-1/4 w-[50rem] h-[50rem] bg-[#E91E63]/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 animate-pulse [animation-delay:1s]" />
+
+                            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+                                <div className="inline-flex items-center space-x-3 text-xs font-black tracking-[0.5em] uppercase mb-12 text-[#E91E63] animate-fade-in-up bg-white/5 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+                                    <span className="w-2 h-2 bg-[#E91E63] rounded-full animate-ping"></span>
+                                    <span>Latest Insights</span>
+                                </div>
+
+                                <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter mb-12 leading-none animate-fade-in-up select-none uppercase overflow-visible">
+                                    <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/40 [-webkit-text-stroke:1px_rgba(255,255,255,0.2)] drop-shadow-[0_10px_30px_rgba(255,255,255,0.2)]">
+                                        Our
+                                    </span>
+                                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1b63bb] via-[#E91E63] to-[#ff8a00] bg-[length:200%_auto] animate-gradient-x drop-shadow-[0_0_50px_rgba(233,30,99,0.3)] italic mt-2 pr-8">
+                                        Stories.
+                                    </span>
+                                </h1>
+
+                                <div className="relative max-w-3xl animate-fade-in-up [animation-delay:0.4s]">
+                                    <p className="text-white/95 text-lg md:text-2xl lg:text-3xl leading-relaxed font-bold tracking-wider [text-shadow:_0_4px_15px_rgba(0,0,0,0.5)]">
+                                        <span className="opacity-80 font-light italic">Insights, trends, and innovation.</span><br />
+                                        <span>Mastering the art of print.</span>
+
+
                                     </p>
                                 </div>
                             </div>
+
+                            {/* Bottom Gradient Fade */}
+                            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent"></div>
                         </section>
 
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                            {/* Featured Post (First item) */}
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 bg-white">
+                            {/* Featured Post */}
                             <div
                                 onClick={() => handlePostClick(BLOG_DATA[0])}
-                                className="group cursor-pointer relative rounded-3xl overflow-hidden shadow-xl mb-16 aspect-[21/9] w-full"
+                                className="group cursor-pointer relative rounded-[3rem] overflow-hidden shadow-2xl mb-24 aspect-[4/5] sm:aspect-[16/9] lg:aspect-[21/9] w-full border border-gray-100 transform transition-all duration-500 hover:-translate-y-2"
                             >
                                 <img
                                     src={BLOG_DATA[0].image}
                                     alt={BLOG_DATA[0].title}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90" />
-                                <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-2/3 text-white">
-                                    <span className="inline-block px-3 py-1 bg-[#1b63bb] text-xs font-bold uppercase tracking-wider rounded-full mb-4">
-                                        Featured
-                                    </span>
-                                    <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight group-hover:text-[#E91E63] transition-colors duration-300">
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent opacity-100 sm:via-gray-900/40 sm:opacity-90" />
+                                <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 w-full lg:w-2/3 text-white">
+                                    <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                                        <span className="px-4 py-1.5 bg-gradient-to-r from-[#1b63bb] to-[#E91E63] text-[10px] font-black uppercase tracking-[0.2em] rounded-full shadow-lg">
+                                            Featured
+                                        </span>
+                                        <div className="flex items-center text-xs font-bold text-white/60 space-x-4">
+                                            <span className="flex items-center"><Calendar className="w-4 h-4 mr-2 text-[#E91E63]" /> {BLOG_DATA[0].date}</span>
+                                        </div>
+                                    </div>
+                                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black mb-6 sm:mb-8 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1b63bb] group-hover:to-[#E91E63] transition-all duration-500 uppercase tracking-tight">
                                         {BLOG_DATA[0].title}
                                     </h2>
-                                    <div className="flex items-center text-sm md:text-base font-medium space-x-6 text-gray-300">
-                                        <span className="flex items-center"><User className="w-4 h-4 mr-2" /> {BLOG_DATA[0].author}</span>
-                                        <span className="flex items-center"><Calendar className="w-4 h-4 mr-2" /> {BLOG_DATA[0].date}</span>
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
+                                            <User className="w-6 h-6 text-white" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-black text-white/40 uppercase tracking-widest">Authored by</p>
+                                            <p className="font-black text-white uppercase tracking-tight">{BLOG_DATA[0].author}</p>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="mb-20">
+                                <span className="text-[#1b63bb] font-black uppercase tracking-[0.4em] text-xs mb-4 block">Archive</span>
+                                <h2 className="text-5xl font-black text-gray-900 tracking-tighter uppercase mb-2 overflow-visible">More <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1b63bb] to-[#E91E63] italic pr-4">Insights</span></h2>
                             </div>
 
                             {/* Grid Layout */}
@@ -334,36 +364,41 @@ export function Blog() {
                                     <div
                                         key={blog.id}
                                         onClick={() => handlePostClick(blog)}
-                                        className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group flex flex-col"
+                                        className="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer group flex flex-col border border-gray-50"
                                     >
-                                        <div className="relative h-60 overflow-hidden">
+                                        <div className="relative h-72 overflow-hidden">
                                             <img
                                                 src={blog.image}
                                                 alt={blog.title}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                             />
-                                            <div className="absolute top-4 left-4">
-                                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-bold text-[#1b63bb] uppercase rounded-full shadow-sm">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            <div className="absolute top-6 left-6">
+                                                <span className="px-4 py-1.5 bg-white/95 backdrop-blur-sm text-[10px] font-black text-[#1b63bb] uppercase tracking-[0.2em] rounded-full shadow-lg">
                                                     {blog.category}
                                                 </span>
                                             </div>
                                         </div>
 
-                                        <div className="p-6 flex-grow flex flex-col">
-                                            <div className="flex items-center text-xs text-gray-500 mb-3 space-x-4">
-                                                <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {blog.date}</span>
-                                                <span className="flex items-center"><MessageCircle className="w-3 h-3 mr-1" /> {blog.comments.length} Comments</span>
+                                        <div className="p-10 flex-grow flex flex-col">
+                                            <div className="flex items-center text-[10px] font-black text-gray-400 mb-6 space-x-6 uppercase tracking-widest">
+                                                <span className="flex items-center"><Calendar className="w-3.5 h-3.5 mr-2 text-[#E91E63]" /> {blog.date}</span>
                                             </div>
-                                            <h3 className="text-xl font-bold text-gray-900 mb-3 leading-snug group-hover:text-[#1b63bb] transition-colors">
+                                            <h3 className="text-2xl font-black text-gray-900 mb-6 leading-tight group-hover:text-[#E91E63] transition-colors uppercase tracking-tight">
                                                 {blog.title}
                                             </h3>
-                                            <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
+                                            <p className="text-gray-500 font-medium line-clamp-3 mb-8 flex-grow leading-relaxed">
                                                 {blog.excerpt}
                                             </p>
-                                            <div className="pt-4 border-t border-gray-100 flex justify-between items-center">
-                                                <span className="text-sm font-semibold text-gray-900">{blog.author}</span>
-                                                <span className="text-[#1b63bb] text-sm font-bold flex items-center group-hover:underline">
-                                                    Read More <ArrowRight className="ml-1 w-4 h-4" />
+                                            <div className="pt-8 border-t border-gray-100 flex justify-between items-center">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-8 h-8 bg-gray-50 rounded-lg flex items-center justify-center">
+                                                        <User className="w-4 h-4 text-[#1b63bb]" />
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-gray-900 uppercase tracking-wider">{blog.author}</span>
+                                                </div>
+                                                <span className="text-[#1b63bb] font-black text-[10px] uppercase tracking-[0.3em] flex items-center group-hover:text-[#E91E63] transition-colors">
+                                                    Read More <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                                 </span>
                                             </div>
                                         </div>
@@ -375,79 +410,87 @@ export function Blog() {
                 ) : (
                     /* ================= DETAIL VIEW ================= */
                     <article className="bg-white">
-                        {/* Hero Image (Starts at top) */}
-                        <div className="relative h-[60vh] min-h-[500px] w-full">
+                        {/* Detail Hero Section */}
+                        <div className="relative h-[80vh] min-h-[700px] w-full overflow-hidden flex items-end">
                             <img
                                 src={selectedPost.image}
                                 alt={selectedPost.title}
-                                className="w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-black/60" />
-                            <div className="absolute bottom-0 w-full p-8 md:p-16">
-                                <div className="max-w-7xl mx-auto text-white">
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent sm:via-gray-900/40" />
+                            <div className="relative z-10 w-full pb-20">
+                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
                                     <button
                                         onClick={handleBack}
-                                        className="flex items-center text-sm font-bold uppercase tracking-wider mb-8 hover:text-[#E91E63] transition-colors"
+                                        className="group inline-flex items-center text-[10px] font-black uppercase tracking-[0.4em] mb-12 hover:text-[#E91E63] transition-colors bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20"
                                     >
-                                        <ChevronLeft className="w-4 h-4 mr-2" /> Back to Blogs
+                                        <ChevronLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Blog
                                     </button>
-                                    <div className="flex flex-wrap items-center gap-4 text-sm font-medium mb-6 text-gray-300">
-                                        <span className="px-3 py-1 bg-[#E91E63] text-white rounded-full">{selectedPost.category}</span>
-                                        <span className="flex items-center"><Calendar className="w-4 h-4 mr-2" /> {selectedPost.date}</span>
-                                        <span className="flex items-center"><User className="w-4 h-4 mr-2" /> {selectedPost.author}</span>
+                                    <div className="flex flex-wrap items-center gap-6 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
+                                        <span className="px-6 py-2 bg-gradient-to-r from-[#1b63bb] to-[#E91E63] text-white rounded-full shadow-xl shadow-pink-500/20">{selectedPost.category}</span>
+                                        <span className="flex items-center bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10"><Calendar className="w-4 h-4 mr-3 text-[#E91E63]" /> {selectedPost.date}</span>
+                                        <span className="flex items-center bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10"><User className="w-4 h-4 mr-3 text-[#1b63bb]" /> {selectedPost.author}</span>
                                     </div>
-                                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 max-w-4xl">
+                                    <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-none mb-8 max-w-5xl uppercase tracking-tighter">
                                         {selectedPost.title}
                                     </h1>
+                                    <div className="w-32 h-2 bg-gradient-to-r from-[#1b63bb] via-[#E91E63] to-[#ff8a00] rounded-full"></div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Content & Sidebar */}
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
                                 {/* Main Content */}
-                                <div className="lg:col-span-2">
-                                    <div className="prose prose-lg prose-blue max-w-none text-gray-700 leading-relaxed">
+                                <div className="lg:col-span-8">
+                                    <div className="prose prose-xl prose-gray max-w-none text-gray-600 font-medium leading-[2] first-letter:text-7xl first-letter:font-black first-letter:text-[#E91E63] first-letter:mr-4 first-letter:float-left first-letter:uppercase first-letter:leading-none">
                                         {selectedPost.content}
                                     </div>
 
-                                    {/* Tags & Share */}
-                                    <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                                        <div className="flex flex-wrap gap-2">
+                                    {/* Tags */}
+                                    <div className="mt-20 pt-10 border-t border-gray-100">
+                                        <div className="flex flex-wrap gap-3">
                                             {selectedPost.tags.map(tag => (
-                                                <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full font-medium">#{tag}</span>
+                                                <span key={tag} className="px-6 py-2 bg-gray-50 text-gray-400 text-[10px] uppercase font-black tracking-widest rounded-xl border border-gray-100 hover:border-[#1b63bb]/20 transition-colors">#{tag}</span>
                                             ))}
                                         </div>
                                     </div>
+
                                 </div>
 
-                                {/* Sidebar (Recommended) */}
-                                <div className="lg:col-span-1">
-                                    <div className="sticky top-24">
-                                        <h4 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">Recommended</h4>
-                                        <div className="space-y-6">
-                                            {BLOG_DATA.filter(b => b.id !== selectedPost.id).map(blog => (
-                                                <div
-                                                    key={blog.id}
-                                                    onClick={() => handlePostClick(blog)}
-                                                    className="group cursor-pointer flex gap-4 items-start"
-                                                >
-                                                    <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                                                        <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                {/* Sidebar */}
+                                <aside className="lg:col-span-4">
+                                    <div className="sticky top-32 space-y-10">
+                                        <div>
+                                            <div className="mb-6">
+                                                <span className="text-[#1b63bb] font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Recommended</span>
+                                                <h4 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Must <span className="text-[#E91E63] italic">Reads</span></h4>
+                                            </div>
+                                            <div className="space-y-4">
+                                                {BLOG_DATA.filter(b => b.id !== selectedPost.id).slice(0, 4).map(blog => (
+                                                    <div
+                                                        key={blog.id}
+                                                        onClick={() => handlePostClick(blog)}
+                                                        className="group cursor-pointer flex gap-4 items-center p-3 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                                    >
+                                                        <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 shadow-md">
+                                                            <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                                        </div>
+                                                        <div>
+                                                            <span className="text-[10px] font-black text-[#E91E63] uppercase tracking-widest block mb-2">{blog.category}</span>
+                                                            <h5 className="font-black text-gray-900 text-sm leading-tight mb-2 group-hover:text-[#1b63bb] transition-colors uppercase tracking-tight line-clamp-2">
+                                                                {blog.title}
+                                                            </h5>
+                                                            <span className="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em]">{blog.date}</span>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <h5 className="font-bold text-gray-900 text-sm leading-snug mb-1 group-hover:text-[#1b63bb] transition-colors">
-                                                            {blog.title}
-                                                        </h5>
-                                                        <span className="text-xs text-gray-500">{blog.date}</span>
-                                                    </div>
-                                                </div>
-                                            ))}
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </aside>
 
                             </div>
                         </div>
@@ -459,3 +502,4 @@ export function Blog() {
         </div>
     );
 }
+

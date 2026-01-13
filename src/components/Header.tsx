@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, Paintbrush, X } from 'lucide-react';
 import { Button } from './ui/Button';
-import { useLocation } from 'react-router-dom'; // Assuming react-router-dom is used for navigation
+import { useLocation, Link } from 'react-router-dom'; // Assuming react-router-dom is used for navigation
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation(); // Get the current location object
+  const isContactPage = location.pathname === '/contact-us';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const navLinks = [{
     name: 'Home',
     href: '/'
@@ -32,13 +47,17 @@ export function Header() {
   };
 
   return (
-    <header className={`sticky top-0 z-50 w-full border-b border-gray-100 ${isOpen ? 'bg-white' : 'bg-white/95 backdrop-blur-sm'}`}>
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${isOpen || scrolled ? 'bg-white shadow-md border-b border-gray-100' : 'bg-transparent border-transparent'}`}>
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center flex-shrink-0">
-            <img src='logo.png' alt='Digital Point' className='w-20' />
-          </div>
+          <Link to="/" className="flex items-center flex-shrink-0 space-x-3 hover:opacity-80 transition-opacity">
+            <img src='logo.png' alt='Digital Point' className='w-12 md:w-14' />
+            <span className="text-sm md:text-base font-bold tracking-tight uppercase font-['Outfit'] leading-none">
+              <span className="text-[#ff8a00]">Digital</span>
+              <span className={`ml-1 ${scrolled || isOpen ? 'text-gray-900' : 'text-white'}`}>Point</span>
+            </span>
+          </Link>
 
           {/* Desktop Nav - Centered */}
           <div className="flex-1 flex justify-center">
@@ -47,7 +66,7 @@ export function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`text-xs font-medium transition-colors uppercase tracking-wide ${location.pathname === link.href ? 'text-[#E91E63]' : 'text-gray-600 hover:text-[#E91E63]'}`}
+                  className={`text-xs font-medium transition-colors uppercase tracking-wide ${location.pathname === link.href ? 'text-[#E91E63]' : (scrolled || isOpen ? 'text-gray-600 hover:text-[#E91E63]' : 'text-white hover:text-[#E91E63]')}`}
                 >
                   {link.name}
                 </a>
@@ -55,17 +74,25 @@ export function Header() {
             </nav>
           </div>
 
-          {/* Desktop Contact Us Button */}
           <div className="hidden lg:flex items-center ml-auto">
-            <Button variant="primary" size="sm" className="px-6 rounded-full">
-              <a href={contactUsLink.href}>{contactUsLink.name}</a>
+            <Button
+              variant="outline"
+              size="sm"
+              className={`px-8 rounded-full border-2 transition-all duration-300 font-bold uppercase tracking-widest text-[10px] ${isContactPage
+                ? '!border-2 !border-[#E91E63] !text-[#E91E63] hover:bg-transparent pointer-events-none'
+                : scrolled || isOpen
+                  ? 'border-gray-900 text-gray-900 hover:!border-[#E91E63] hover:!text-[#E91E63] hover:bg-transparent'
+                  : 'border-white text-white hover:!border-[#E91E63] hover:!text-[#E91E63] hover:bg-transparent shadow-[0_0_20px_rgba(255,255,255,0.1)]'
+                }`}
+            >
+              <a href={contactUsLink.href} className="text-inherit">{contactUsLink.name}</a>
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
-            <button onClick={() => setIsOpen(true)} className="p-2 text-gray-600 rounded-md hover:text-gray-900 focus:outline-none">
-              <Menu className="w-6 h-6" />
+            <button onClick={() => setIsOpen(true)} className={`p-2 rounded-md focus:outline-none ${scrolled || isOpen ? 'text-gray-600 hover:text-gray-900' : 'text-white'}`}>
+              <Paintbrush className="w-8 h-8" />
             </button>
           </div>
         </div>

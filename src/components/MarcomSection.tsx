@@ -1,7 +1,11 @@
 import React from 'react';
 import { MoveRight } from 'lucide-react';
 export function MarcomSection() {
-  return <section className="bg-[#1a1a1a] pt-32 pb-24 relative overflow-hidden z-10">
+  return <section className="bg-[#050505] relative pt-32 pb-24 overflow-hidden z-10">
+    {/* Shine/Glow Effects */}
+    <div className="absolute top-0 left-1/4 w-[40rem] h-[40rem] bg-blue-900/10 rounded-full blur-[120px] -translate-y-1/2" />
+    <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-pink-900/10 rounded-full blur-[120px] translate-y-1/2" />
+    <div className="absolute inset-0 bg-gradient-to-tr from-black via-[#111] to-black opacity-80" />
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>

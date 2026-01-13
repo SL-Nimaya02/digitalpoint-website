@@ -1,73 +1,77 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react'; // Removed unused 'Award' import
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from './ui/Button';
 
 export function Hero() {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Auto-play might be blocked
+      });
+    }
+  }, []);
+
   return (
-    <section className="relative pt-12 pb-20 overflow-hidden bg-white lg:pt-20 lg:pb-28">
-      <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Left Content */}
-          <div className="z-10">
-            <p className="text-[#0640a3] font-medium mb-4 tracking-wide text-sm">
-              What you want us to be!
-            </p>
-            <h1 className="mb-6 text-5xl font-bold leading-tight text-gray-900 lg:text-6xl">
-              We are Your Ideal <br />
-              <span className="text-[#E91E63] relative inline-block">
-                Printing
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#E91E63]/20" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
-                </svg>
-              </span>{' '}
-              Partner
+    <section className="relative h-[100vh] sm:h-screen flex flex-col items-center justify-center overflow-hidden font-['Montserrat']">
+      {/* Background video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-section/video_01.mp4" type="video/mp4" />
+        </video>
+        {/* Mobile-only overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/40 sm:hidden z-0" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center justify-center h-full pt-32 sm:pt-20 pb-20 sm:pb-0">
+        <div className="flex flex-col items-center text-center space-y-10 sm:space-y-16">
+          <div className="space-y-8 sm:space-y-12 relative flex flex-col items-center">
+            <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-none tracking-tighter flex flex-col items-center select-none uppercase text-center">
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/40 [-webkit-text-stroke:1px_rgba(255,255,255,0.3)] drop-shadow-[0_10px_30px_rgba(255,255,255,0.2)]">
+                Bring Your
+              </span>
+              <span className="relative inline-block px-4 -mx-4 text-transparent bg-clip-text bg-gradient-to-r from-[#1b63bb] via-[#E91E63] to-[#ff8a00] bg-[length:200%_auto] animate-gradient-x drop-shadow-[0_0_40px_rgba(233,30,99,0.4)] italic mt-2">
+                Visions to Life
+              </span>
             </h1>
-            <p className="max-w-lg mb-8 text-lg leading-relaxed text-gray-600">
-              Digital Point delivers premium printing solutions for every need, from small batches to large scale orders. With a focus on quality, precision, and affordability, we bring your ideas to life beautifully and efficiently.
-            </p>
+
+            <div className="relative max-w-4xl animate-fade-in-up [animation-delay:0.8s]">
+              <p className="text-white/95 text-lg sm:text-xl lg:text-3xl leading-relaxed font-bold tracking-wider text-center px-4 sm:px-6 [text-shadow:_0_4px_15px_rgba(0,0,0,0.7)] group">
+                <span className="opacity-70 font-light italic block sm:inline">Precision in Every Pixel</span>
+                <span className="mx-4 text-[#E91E63] inline-block sm:inline">•</span>
+                <span className="inline sm:inline">Excellence in Every Print</span>
+                <br />
+                <span className="text-white/60 font-black uppercase text-[10px] sm:text-xs lg:text-base tracking-[0.4em] mt-3 sm:mt-4 block">Next Generation Digital Solutions</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-10 items-center justify-center w-full px-6 sm:px-0">
             <Button
               size="lg"
-              className="group bg-[#1c3eab] hover:bg-[#0a3db3] text-white transition-colors duration-300 disabled:bg-gray-100 disabled:text-gray-400 focus:outline-none focus:ring-5 focus:ring-[#0a3db3]"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#1b63bb] to-[#E91E63] text-white px-8 py-5 sm:px-10 sm:py-7 lg:px-14 lg:py-8 text-base sm:text-lg lg:text-xl rounded-full transition-all duration-500 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(233,30,99,0.4)] font-bold flex items-center justify-center gap-3 w-full sm:w-[280px] lg:w-[320px] active:scale-95"
+              onClick={() => window.location.href = '/services'}
+            >
+              <span className="relative z-10">Explore Services</span>
+              <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-x-2 transition-transform relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite] transition-transform" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-8 py-5 sm:px-10 sm:py-7 lg:px-14 lg:py-8 text-base sm:text-lg lg:text-xl rounded-full border border-white/30 text-white hover:border-white hover:bg-white/10 backdrop-blur-md transition-all duration-300 font-bold w-full sm:w-[280px] lg:w-[320px] flex items-center justify-center active:scale-95 shadow-lg"
               onClick={() => window.location.href = '/about-us'}
             >
               Learn More
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
-          </div>
-
-          {/* Right Content - Image Composition */}
-          <div className="relative mt-10 lg:mt-0">
-            {/* Main Image */}
-            <div className="relative overflow-hidden transform shadow-2xl rounded-2xl lg:translate-x-8">
-              <img
-                src="/hero.png"
-                alt="Industrial Printing Press"
-                className="w-full h-[400px] lg:h-[500px] object-cover"
-              />
-
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
-            </div>
-
-            {/* Floating Stats Card */}
-            <div className="absolute z-20 px-6 py-10 bg-white border border-gray-100 shadow-xl -top-10 -right-4 lg:-right-16 rounded-xl w-80">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h3 className="text-3xl font-bold text-gray-900">10,000+</h3>
-                  <p className="text-xs tracking-wider text-gray-500 uppercase">
-                    Units of Prints Produced in 2025
-                  </p>
-                </div>
-              </div>
-              <div className="pt-4 mt-4 border-t border-gray-100">
-                <p className="text-sm text-gray-600">
-                  <span className="text-[#E91E63] font-semibold">
-                    Enough to wallpaper the Great Wall...
-                  </span>{' '}
-                  twice!
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
